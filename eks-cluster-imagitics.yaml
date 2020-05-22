@@ -1,0 +1,26 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: imagitics-cluster
+  region: us-east-1
+
+nodeGroups:
+  - name: scale-spot
+    desiredCapacity: 3
+    maxSize: 10
+    instancesDistribution:
+      instanceTypes: ["t3a.small", "t3a.medium", "t2.medium"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+    availabilityZones: ["us-east-1a", "us-east-1b","us-east-1c"]
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+    labels:
+      nodegroup-type: stateless-workload
+      instance-type: spot
+    ssh:
+      publicKeyName: eks-cluster-prod
+
+availabilityZones: ["us-east-1a", "us-east-1b","us-east-1c"]
