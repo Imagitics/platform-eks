@@ -51,7 +51,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/$K8S_DAS
 kubectl apply -f admin-service-account.yaml
    
 ##### access the dashboard
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-course-admin | awk '{print $1}')
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep imagitics-cluster-admin | awk '{print $1}')
 kubectl proxy
 
 ##### open browser at 
