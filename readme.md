@@ -2,7 +2,7 @@
 aws ec2 create-key-pair --key-name eks-cluster-prod
 
 ## create eks cluster with spot instances node group
-eksctl apply -f eks-cluster-imagitics.yaml
+eksctl create cluster -f eks-cluster-imagitics.yaml
 
 ## create eks cluster with spot instances node group
 eksctl apply -f eks-cluster-imagitics.yaml
