@@ -36,3 +36,4 @@ kubectl get svc -n grafana grafana
 
 ##### import dashboard(s)
 * navigate to https://grafana.com/grafana/dashboards and select preconfigured dashboard for monitoring K8s cluster
+* login with admin/GrafanaAdm!n
