@@ -11,7 +11,21 @@ kubectl exec -it cassandra-0 -- nodetool status
 kubectl exec -it cassandra-0 /bin/bash
 apt-get update
 apt-get install dnsutils
-nslookup cassandra
+kubectl get pods -l app=cassandra -o json | jq '.items[] | {"name": .metadata.name,"hostname": .spec.nodeName, "hostIP": .status.hostIP, "PodIP": .status.podIP}'
+apt-get install build-essential
+apt-get install make
+wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+tar -xvzf Python-2.7.6.tgz
+cd Python-2.7.6
+./configure --prefix=/usr/local
+make
+make install
+
+######Exit from the pod and execute following command to start cqlsh
+kubectl exec -it cassandra-0 cqlsh
+
+
+
 
 
 
