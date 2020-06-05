@@ -29,3 +29,4 @@ kubectl exec -it cassandra-0 cqlsh
 
 
 
+
